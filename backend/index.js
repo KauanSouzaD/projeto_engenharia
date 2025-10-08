@@ -5,11 +5,16 @@ const app = express();
 require("dotenv").config();
 
 const produtoRoutes = require("./routes/ProdutoRoutes");
+const tutorRoute = require("./routes/TutorRoute");
+const petRoutes = require("./routes/PetRoutes");
 
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/produto/", produtoRoutes)
+app.use("/api/produto/", produtoRoutes);
+app.use("/api/tutor", tutorRoute);
+app.use("/api/pet", petRoutes);
+
 
 const connectDB = require("./db/connection");
 
